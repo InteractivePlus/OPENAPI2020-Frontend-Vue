@@ -3,20 +3,12 @@
 	height: 100px;
 }
 
-.login_form_wrap {
+.container_wrap {
 	height: 100%;
 	display: flex;
-	justify-content:center;
+	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-}
-
-
-.dologin {
-	width: 400px;
-	border: 1px solid #dee2e6 !important;
-	box-shadow: 0 .3rem .55rem rgba(0, 0, 0, .09);
-	padding: 50px 35px 10px;
 }
 
 .login-link {
@@ -49,47 +41,13 @@
 	text-align: center;
 }
 
-
-.form-login {
-	display: block;
-	width: 100%;
-	outline: none;
-	font-size: 1rem;
-	line-height: 24px;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-top-color: #fff;
-	border-left-color: #fff;
-	border-right-color: #fff;
-	/*transition: all .2s ease-in-out, box-shadow .2s ease-in-out;*/
-}
-
-
-.form-login:focus {
-	border: 1px solid #026FCE;
-	border-top-color: #fff;
-	border-left-color: #fff;
-	border-right-color: #fff;
-}
-
-.form-login-warning {
-	border: 1.5px solid #e81123;
-	border-top-color: #fff;
-	border-left-color: #fff;
-	border-right-color: #fff;
-}
-
-.form-group{
-    text-align: left;
-	margin-bottom: 1rem;
-}
-
-.form_desc{
-	margin: 2rem 0 2rem;
-}
-
-.form_tips{
+.form_tips {
 	margin-top: 1rem;
+}
+
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
 }

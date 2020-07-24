@@ -1,0 +1,36 @@
+.container-logo {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 2rem;
+}
+
+
+.xsyd-container {
+	/*width: 400px;*/
+	border: 1px solid #dee2e6 !important;
+	box-shadow: 0 .3rem .55rem rgba(0, 0, 0, .09);
+	padding: 50px 35px 10px;
+}
+
+
+.container-desc{
+	margin: 0 0 2rem;
+}
+
+
+.container-text {
+	font-size: 23px;
+	color: #272727;
+	text-align: center;
+}
+
+.container-little-text {
+	font-size: 18px;
+	color: #404040;
+	text-align: center;
+}
+
+/*未使用*/
+.container_tips{
+	margin-top: 1rem;
+}
