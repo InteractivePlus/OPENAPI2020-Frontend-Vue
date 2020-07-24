@@ -4,24 +4,34 @@
 	margin-bottom: 2rem;
 }
 
-
 .xsyd-container {
 	/*width: 400px;*/
 	border: 1px solid #dee2e6 !important;
-	box-shadow: 0 .3rem .55rem rgba(0, 0, 0, .09);
+	box-shadow: 0 0.3rem 0.55rem rgba(0, 0, 0, 0.09);
 	padding: 50px 35px 10px;
 }
 
-
-.container-desc{
-	margin: 0 0 2rem;
+.xsyd-container-without-logo {
+	/*width: 400px;*/
+	border: 1px solid #dee2e6 !important;
+	box-shadow: 0 0.3rem 0.55rem rgba(0, 0, 0, 0.09);
+	padding: 10px 35px 10px;
 }
 
+.container-desc {
+	margin: 0 0 2rem;
+}
 
 .container-text {
 	font-size: 23px;
 	color: #272727;
 	text-align: center;
+}
+
+.container-text-without-center {
+	font-size: 23px;
+	color: #272727;
+	text-align: left;
 }
 
 .container-little-text {
@@ -31,6 +41,6 @@
 }
 
 /*未使用*/
-.container_tips{
+.container_tips {
 	margin-top: 1rem;
 }
