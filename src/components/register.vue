@@ -34,9 +34,7 @@
 						<a-row>
 							<a-col :span="12"><a href="">已有账号？</a></a-col>
 							<a-col :span="12">
-								<a-button v-on:click="goRegister" type="primary" name="next-step" size="medium"
-									>下一步</a-button
-								>
+								<a-button v-on:click="goRegister" type="primary" name="next-step">下一步</a-button>
 							</a-col>
 						</a-row>
 					</a-col>
@@ -49,6 +47,12 @@
 				</a-row>
 			</div>
 		</xsydContainer>
+		<xsydContainer
+			style="display: none;"
+			title="验证您的形随意动账号"
+			islogohidden="true"
+			isTitleCenter="false"
+		></xsydContainer>
 	</div>
 </template>
 
