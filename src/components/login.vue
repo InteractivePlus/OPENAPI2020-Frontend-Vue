@@ -3,8 +3,8 @@
 		<xsydContainer title="登录" subTitle="一个账号，畅享BlueAirLive所有服务">
 			<div>
 				<div>
-					<xsydInput inputId="EmailInput" label="邮箱" placeholderStr="请输入您的邮箱"></xsydInput>
-					<xsydInput inputId="PwdInput" label="密码" placeholderStr="请输入密码" isPwd="true"></xsydInput>
+					<xsydInput inputId="EmailInput" label="邮箱" placeholderStr="请输入您的邮箱" ref="EmailInput"></xsydInput>
+					<xsydInput inputId="PwdInput" label="密码" placeholderStr="请输入密码" isPwd="true" ref="PwdInput"></xsydInput>
 					<!--
 					<xsydInput inputId="VcodeInput" label="验证码" placeholderStr="请输入发至您邮箱的验证码"></xsydInput>
 					-->
@@ -60,6 +60,8 @@
 //import testui from './widget/testui.vue'
 import xsydContainer from '@/components/widget/xsydContainer.vue';
 import xsydInput from '@/components/widget/xsydInput.vue';
+
+
 export default {
 	name: 'login',
 	components: {
@@ -70,6 +72,19 @@ export default {
 	methods: {
 	    goLogin() {
 	        console.log('login');
+			console.log(this.$refs.EmailInput.data)
+			console.log(this.$refs.PwdInput.data)
+			this.$message.success(
+			        'hello,'+this.$refs.EmailInput.data,
+			        10,
+			      );
+			/*
+			Vue.prototype.$message.success('f');
+			this.$message.success(
+			        'This is a prompt message for success, and it will disappear in 10 seconds',
+			        10,
+			      );
+			*/
 	    }
 	}
 };
