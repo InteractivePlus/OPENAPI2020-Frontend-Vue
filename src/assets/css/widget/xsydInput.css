@@ -1,0 +1,73 @@
+.xsyd-input-group {
+	text-align: left;
+	margin-bottom: 1rem;
+}
+
+.xsyd-input-label {
+	color: #404040;
+}
+
+.xsyd-input-textview-password input {
+	display: block;
+	width: 100%;
+	outline: none;
+	font-size: 1rem;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-right-color: #fff;
+	border-radius: 0;
+}
+
+.xsyd-input-textview-normal {
+	display: block;
+	width: 100%;
+	outline: none;
+	font-size: 1rem;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-right-color: #fff;
+	border-radius: 0;
+}
+
+.xsyd-input-textview-normal:focus {
+	border: 1px solid #026FCE;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-right-color: #fff;
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+}
+
+/*以下两个样式用于解决密码框边框问题*/
+.xsyd-input-textview-password input:focus {
+	border: 1px solid #026FCE;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-right-color: #fff;
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+}
+
+
+.ant-input-affix-wrapper:hover .ant-input:focus {
+	/*border-color:  rgba(255, 255, 255, 1);*/
+	border: 1px solid #026FCE;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-right-color: #fff;
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+}
+
+/*未使用*/
+.xsyd-input-textview-warning {
+	border: 1.5px solid #e81123;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-right-color: #fff;
+}

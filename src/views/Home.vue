@@ -1,10 +1,13 @@
 <template>
   <div class="home">
+	<router-link to="/login">Login</router-link> |
+	<router-link to="/register">Register</router-link>
+		
     <!--<img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
 	 <a-button type="primary">
 	      Primary
-	    </a-button>
+	    </a-button>-->
   </div>
 </template>
 
