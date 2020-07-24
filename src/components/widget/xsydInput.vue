@@ -2,8 +2,8 @@
 	<div>
 		<div class="xsyd-input-group">
 			<label v-bind:for="inputId" class="xsyd-input-label">{{ label }}</label>
-			<div v-if="isPwd === 'true'"><a-input-password class="xsyd-input-textview-password" v-bind:id="inputId" v-bind:placeholder="placeholderStr" /></div>
-			<div v-else><a-input type="text" class="xsyd-input-textview-normal" v-bind:id="inputId" v-bind:placeholder="placeholderStr" ><slot></slot></a-input></div>
+			<div v-if="isPwd === 'true'"><a-input-password class="xsyd-input-textview-password" v-bind:id="inputId" v-bind:placeholder="placeholderStr" v-model="data"/></div>
+			<div v-else><a-input type="text" class="xsyd-input-textview-normal" v-bind:id="inputId" v-bind:placeholder="placeholderStr" v-model="data"><slot></slot></a-input></div>
 		</div>
 	</div>
 </template>
@@ -24,6 +24,7 @@ export default {
 	},
 	data() {
 		return {
+			data:''
 		};
 	},
 	methods: {
