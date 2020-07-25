@@ -38,10 +38,10 @@ let _Setting = {
 	DEFAULT_COUNTRY: "CN",
 	DEFAULT_LOCALE: "zh_CN",
 
-	DEFAULT_GROUP_PERMISSION: new Map([
-		["createApp", false],
-		["numAppLimit", 1],
-	]),
+	DEFAULT_GROUP_PERMISSION: {
+		createApp: false,
+		numAppLimit: 1,
+	},
 	ALLOW_TOKEN_IP_CHANGE: true,
 	DEBUG_MODE: true,
 };
