@@ -1,99 +1,116 @@
 <template>
-	<div class="container_wrap">
-		<a-spin :spinning="firstStepSpinning">
-			<xsydContainer title="注册您的形随意动账号" islogohidden="true" isTitleCenter="false">
-				<div>
-					<a-row type="flex" justify="space-around" align="middle">
-						<a-col :span="16" style="padding-right: 1rem">
-							<a-form :form="form" @submit="handleSubmit">
-								<a-form-item class="item-group">
-									<label class="xsyd-input-label">用户名</label>
-									<a-input
-										class="xsyd-input-textview-normal input-margin"
-										placeholder="请输入您的用户名"
-										v-decorator="[
-											'username',
-											{
-												rules: [
-													{ required: true, message: '请输入您的用户名！', whitespace: false },
-													{ validator: validateUserName },
-												],
-											},
-										]"
-									/>
-								</a-form-item>
-								<a-form-item class="item-group">
-									<label class="xsyd-input-label">电子邮箱</label>
-									<a-input
-										class="xsyd-input-textview-normal input-margin"
-										placeholder="请输入您的电子邮箱"
-										v-decorator="[
-											'email',
-											{
-												rules: [
-													{ type: 'email', message: '这不是一个正确的电子邮箱！' },
-													{ required: true, message: '请输入您的电子邮箱！' },
-													{ validator: validateEmail },
-												],
-											},
-										]"
-									/>
-								</a-form-item>
-								<p id="email-tip">您需要证实此电子邮件地址属于您。</p>
-								<a-form-item class="item-group" has-feedback>
-									<label class="xsyd-input-label">密码</label>
-									<a-input
-										class="xsyd-input-textview-normal input-margin"
-										placeholder="请输入您的密码"
-										v-decorator="[
-											'password',
-											{
-												rules: [{ required: true, message: '请输入您的密码！' }, { validator: validateToNextPassword }],
-											},
-										]"
-										type="password"
-									/>
-								</a-form-item>
-								<a-form-item class="item-group" has-feedback>
-									<label class="xsyd-input-label">确认密码</label>
-									<a-input
-										class="xsyd-input-textview-normal input-margin"
-										placeholder="请确认您的密码"
-										v-decorator="[
-											'confirm',
-											{
-												rules: [{ required: true, message: '请确认您的密码！' }, { validator: compareToFirstPassword }],
-											},
-										]"
-										type="password"
-										@blur="handleConfirmBlur"
-									/>
-								</a-form-item>
-								<p id="password-tip">使用 8 个或更多字符（字母、数字和符号的组合）</p>
-
+	<!--<div class="container_wrap">-->
+	<div>
+		<a-row type="flex" justify="space-around" align="middle" style="height: 100vh">
+			<a-col :span="7"></a-col>
+			<a-col :span="10">
+				<a-carousel :after-change="onChange" style="width: 100%" ref="carousel">
+					<div>
+						<a-spin :spinning="firstStepSpinning">
+							<xsydContainer title="注册您的形随意动账号" islogohidden="true" isTitleCenter="false">
 								<a-row type="flex" justify="space-around" align="middle">
-									<a-col :span="12">
-										<router-link to="/login"><a href="">已有账号？</a></router-link>
-									</a-col>
+									<a-col :span="16" style="padding-right: 1rem">
+										<a-form :form="form" @submit="handleSubmit">
+											<a-form-item class="item-group">
+												<label class="xsyd-input-label">用户名</label>
+												<a-input
+													class="xsyd-input-textview-normal input-margin"
+													placeholder="请输入您的用户名"
+													v-decorator="[
+														'username',
+														{
+															rules: [
+																{ required: true, message: '请输入您的用户名！', whitespace: false },
+																{ validator: validateUserName },
+															],
+														},
+													]"
+												/>
+											</a-form-item>
+											<a-form-item class="item-group">
+												<label class="xsyd-input-label">电子邮箱</label>
+												<a-input
+													class="xsyd-input-textview-normal input-margin"
+													placeholder="请输入您的电子邮箱"
+													v-decorator="[
+														'email',
+														{
+															rules: [
+																{ type: 'email', message: '这不是一个正确的电子邮箱！' },
+																{ required: true, message: '请输入您的电子邮箱！' },
+																{ validator: validateEmail },
+															],
+														},
+													]"
+												/>
+											</a-form-item>
+											<p id="email-tip">您需要证实此电子邮件地址属于您。</p>
+											<a-form-item class="item-group" has-feedback>
+												<label class="xsyd-input-label">密码</label>
+												<a-input
+													class="xsyd-input-textview-normal input-margin"
+													placeholder="请输入您的密码"
+													v-decorator="[
+														'password',
+														{
+															rules: [
+																{ required: true, message: '请输入您的密码！' },
+																{ validator: validateToNextPassword },
+															],
+														},
+													]"
+													type="password"
+												/>
+											</a-form-item>
+											<a-form-item class="item-group" has-feedback>
+												<label class="xsyd-input-label">确认密码</label>
+												<a-input
+													class="xsyd-input-textview-normal input-margin"
+													placeholder="请确认您的密码"
+													v-decorator="[
+														'confirm',
+														{
+															rules: [
+																{ required: true, message: '请确认您的密码！' },
+																{ validator: compareToFirstPassword },
+															],
+														},
+													]"
+													type="password"
+													@blur="handleConfirmBlur"
+												/>
+											</a-form-item>
+											<p id="password-tip">使用 8 个或更多字符（字母、数字和符号的组合）</p>
 
-									<a-col :span="12">
-										<a-form-item style="margin-bottom: 0;">
-											<a-button type="primary" html-type="submit">下一步</a-button>
-										</a-form-item>
+											<a-row type="flex" justify="space-around" align="middle">
+												<a-col :span="12">
+													<router-link to="/login"><a href="">已有账号？</a></router-link>
+												</a-col>
+
+												<a-col :span="12">
+													<a-form-item style="margin-bottom: 0;">
+														<a-button type="primary" html-type="submit">下一步</a-button>
+													</a-form-item>
+												</a-col>
+											</a-row>
+										</a-form>
+									</a-col>
+									<a-col :span="8">
+										<a-col :span="24" style="text-align: center">
+											<img src="@/assets/logo.png" class="logo" />
+										</a-col>
+										<a-col :span="24"> <p id="regist-tip">一个账号，畅享BlueAirLive所有服务</p></a-col>
 									</a-col>
 								</a-row>
-							</a-form>
-						</a-col>
-						<a-col :span="8">
-							<a-row>
-								<a-col :span="24"><img src="@/assets/logo.png" class="container-logo"/></a-col>
-								<a-col :span="24"><p id="regist-tip">一个账号，畅享BlueAirLive所有服务</p></a-col>
-							</a-row>
-						</a-col>
-					</a-row>
-				</div>
-			</xsydContainer>
-		</a-spin>
+							</xsydContainer>
+						</a-spin>
+					</div>
+					<div><h3>2</h3></div>
+				</a-carousel>
+			</a-col>
+			<a-col :span="7"></a-col>
+		</a-row>
+
 		<!--<xsydContainer title="验证您的邮箱" islogohidden="true" isTitleCenter="false"></xsydContainer>-->
 	</div>
 </template>
@@ -120,6 +137,7 @@ export default {
 					this.firstStepSpinning = !this.firstStepSpinning;
 					setTimeout(() => {
 						console.log("change page");
+						this.$refs.carousel.next();
 					}, 3000);
 				}
 			});
@@ -186,6 +204,9 @@ export default {
 
 			callback();
 		},
+		onChange(a, b, c) {
+			console.log(a, b, c);
+		},
 	},
 	beforeCreate() {
 		this.form = this.$form.createForm(this);
@@ -200,10 +221,25 @@ export default {
 };
 </script>
 
+<style scoped>
+.ant-carousel >>> .slick-slide {
+	text-align: center;
+	min-height: 160px;
+	line-height: 160px;
+	overflow: hidden;
+}
+</style>
+
 <style>
 /* 这玩意不会正常显示 干脆就别显示 */
 .ant-form-item-children-icon {
 	display: none !important;
+}
+
+.logo {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto 2em !important;
 }
 
 .input-margin {
@@ -222,7 +258,7 @@ export default {
 #email-tip {
 	font-size: 12px;
 	text-align: left;
-	margin-bottom: 2em;
+	margin-bottom: 1.5em;
 }
 
 #password-tip {
@@ -233,5 +269,6 @@ export default {
 #regist-tip {
 	font-size: 16px;
 	font-weight: 300;
+	line-height: 1.5 !important;
 }
 </style>

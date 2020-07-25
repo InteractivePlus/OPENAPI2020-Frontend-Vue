@@ -1,7 +1,7 @@
 .container-logo {
 	width: 100px;
 	height: 100px;
-	margin-bottom: 2rem;
+	margin-bottom: 2rem !important;
 }
 
 .xsyd-container {
@@ -15,7 +15,7 @@
 	/*width: 400px;*/
 	border: 1px solid #dee2e6 !important;
 	box-shadow: 0 0.3rem 0.55rem rgba(0, 0, 0, 0.09);
-	padding: 10px 35px 10px;
+	padding: 35px 35px 35px;
 }
 
 .container-desc {
@@ -26,12 +26,14 @@
 	font-size: 23px;
 	color: #272727;
 	text-align: center;
+	line-height: 1.5 !important;
 }
 
 .container-text-without-center {
 	font-size: 23px;
 	color: #272727;
 	text-align: left;
+	line-height: 1.5 !important;
 }
 
 .container-little-text {

@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { Button, Input, message, notification, Form, Row, Col, Spin } from "ant-design-vue";
+import { Button, Input, message, notification, Form, Row, Col, Spin, Carousel } from "ant-design-vue";
 
 import "./assets/css/global.css";
 
@@ -12,6 +12,7 @@ Vue.use(Row);
 Vue.use(Col);
 Vue.use(Form);
 Vue.use(Spin);
+Vue.use(Carousel);
 
 Vue.prototype.$message = message;
 Vue.prototype.$notification = notification;
