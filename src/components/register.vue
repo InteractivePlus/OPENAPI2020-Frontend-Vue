@@ -14,7 +14,10 @@
 										v-decorator="[
 											'username',
 											{
-												rules: [{ required: true, message: '请输入您的用户名！', whitespace: false }],
+												rules: [
+													{ required: true, message: '请输入您的用户名！', whitespace: false },
+													{ validator: validateUserName },
+												],
 											},
 										]"
 									/>
@@ -30,6 +33,7 @@
 												rules: [
 													{ type: 'email', message: '这不是一个正确的电子邮箱！' },
 													{ required: true, message: '请输入您的电子邮箱！' },
+													{ validator: validateEmail },
 												],
 											},
 										]"
@@ -96,6 +100,7 @@
 
 <script>
 import "@/assets/css/widget/xsydInput.css";
+import Setting from "@/config/config.js";
 
 import xsydContainer from "@/components/widget/xsydContainer.vue";
 // import xsydInput from "@/components/widget/xsydInput.vue";
@@ -125,8 +130,15 @@ export default {
 		},
 		compareToFirstPassword(rule, value, callback) {
 			const form = this.form;
-			if (value.length < 8) {
-				callback("密码过短，请使用8个或更多字符");
+			if (value.length < Setting.PASSWORD_MINLEN) {
+				callback(`密码过短，请限制${Setting.PASSWORD_MINLEN}~${Setting.PASSWORD_MAXLEN}字符以内`);
+			}
+			if (value.length > Setting.PASSWORD_MAXLEN) {
+				callback(`密码过长，请限制${Setting.PASSWORD_MINLEN}~${Setting.PASSWORD_MAXLEN}字符以内`);
+			}
+
+			if (Setting.PASSWORD_REGEX.test(value) === false) {
+				callback("密码不符合规则");
 			}
 
 			if (value && value !== form.getFieldValue("password")) {
@@ -137,8 +149,15 @@ export default {
 		},
 		validateToNextPassword(rule, value, callback) {
 			const form = this.form;
-			if (value.length < 8) {
-				callback("密码过短，请使用8个或更多字符");
+			if (value.length < Setting.PASSWORD_MINLEN) {
+				callback(`密码过短，请限制${Setting.PASSWORD_MINLEN}~${Setting.PASSWORD_MAXLEN}字符以内`);
+			}
+			if (value.length > Setting.PASSWORD_MAXLEN) {
+				callback(`密码过长，请限制${Setting.PASSWORD_MINLEN}~${Setting.PASSWORD_MAXLEN}字符以内`);
+			}
+
+			if (Setting.PASSWORD_REGEX.test(value) === false) {
+				callback("密码不符合规则");
 			}
 
 			if (value && this.confirmDirty) {
@@ -146,9 +165,31 @@ export default {
 			}
 			callback();
 		},
+		validateEmail(rule, value, callback) {
+			const form = this.form;
+			if (value.length > Setting.EMAIL_MAXLEN) {
+				callback(`邮箱过长，请限制在${Setting.EMAIL_MAXLEN}字符以内`);
+			}
+			callback();
+		},
+		validateUserName(rule, value, callback) {
+			const form = this.form;
+			if (value.length < Setting.USERNAME_MINLEN) {
+				callback(`用户名过短，请限制${Setting.USERNAME_MINLEN}~${Setting.USERNAME_MAXLEN}字符以内`);
+			}
+			if (value.length > Setting.USERNAME_MAXLEN) {
+				callback(`用户名过长，请限制${Setting.USERNAME_MINLEN}~${Setting.USERNAME_MAXLEN}字符以内`);
+			}
+			if (Setting.USERNAME_REGEX.test(value) === false) {
+				callback("用户名不符合规则");
+			}
+
+			callback();
+		},
 	},
 	beforeCreate() {
 		this.form = this.$form.createForm(this);
+		console.log(Setting);
 	},
 	data() {
 		return {
