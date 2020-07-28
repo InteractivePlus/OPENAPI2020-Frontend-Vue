@@ -1,11 +1,11 @@
 # OPENAPI2020-Frontend
 
-使用Vue 4进行开发，ant-design-vue作为基础界面库。  
+使用Vue 2进行开发，ant-design-vue作为基础界面库。  
 目前为单页面应用  
 
 
 ## 环境说明
-- Vue 4.4.6
+- Vue 2
 - node 12.15.0
 
 ## 初始化
